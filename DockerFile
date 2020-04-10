@@ -38,9 +38,39 @@ RUN mkdir ~/my_project && \
     cp /cus_jup/jupyter_notebook_config.py ~/.jupyter/ && \
     cp /cus_jup/custom/custom.js ~/.jupyter/custom/ && \
     cp /cus_jup/nbconfig/notebook.json ~/.jupyter/nbconfig/ && \
-    rm -rf /cus_jup
+    rm -rf /cus_jup && \
+    # Install Anaconda using it's official .sh file
+    echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh && \
+    wget --quiet https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh -O ~/anaconda.sh && \
+    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
+    rm ~/anaconda.sh && \
+    # Update Anaconda's libraries to the latest...
+    conda update conda && \
+    conda update anaconda && \
+    conda update --all && \
+    # Install Jupyter theme for customizing the jupyter lab environment
+    pip install msgpack jupyterthemes && \
+    jt -t grade3 && \ 
+    # Install other Python packages (whether it's resolvable using pip or conda )
+    conda install pymssql && \
+    pip install SQLAlchemy \
+        quilt \
+        missingno \
+        json_tricks \
+        bcolz \
+        elasticsearch \
+        psycopg2 \
+        jupyter_contrib_nbextensions \
+        jupyter_nbextensions_configurator && \
+    # Enable Jupyter Notebook extensions
+    jupyter contrib nbextension install --user && \
+    jupyter nbextensions_configurator enable --user && \
+    jupyter nbextension enable codefolding/main && \
+    jupyter nbextension enable collapsible_headings/main && \
+    # remove everything you don't need
+    apt-get remove -y wget git-core pkg-config
  
  # Configure access to Jupyter
 WORKDIR /root/my_project
 EXPOSE 8888
-# CMD jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='data-science'
+CMD jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='data-science'
