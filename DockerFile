@@ -28,7 +28,7 @@ RUN mkdir ~/my_project && \
     # clean up the mess
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    # Install Jupyter config
+    # Install Jupyter config (Injecting the needful config files from my gitlab repository)
     mkdir ~/.ssh && touch ~/.ssh/known_hosts && \
     ssh-keygen -F github.com || ssh-keyscan github.com >> ~/.ssh/known_hosts && \
     git clone https://gitlab.com/alifzl/cus_jup.git && \
@@ -36,8 +36,8 @@ RUN mkdir ~/my_project && \
     mkdir -p ~/.jupyter/custom && \
     mkdir -p ~/.jupyter/nbconfig && \
     cp /cus_jup/jupyter_notebook_config.py ~/.jupyter/ && \
-    cp /dotfiles/custom/custom.js ~/.jupyter/custom/ && \
-    cp /dotfiles/nbconfig/notebook.json ~/.jupyter/nbconfig/ && \
+    cp /cus_jup/custom/custom.js ~/.jupyter/custom/ && \
+    cp /cus_jup/nbconfig/notebook.json ~/.jupyter/nbconfig/ && \
     rm -rf /cus_jup
  
  # Configure access to Jupyter
