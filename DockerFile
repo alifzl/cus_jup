@@ -72,4 +72,4 @@ RUN mkdir ~/my_project && \
  # Configure access to Jupyter
 WORKDIR /root/my_project
 EXPOSE 8888
-CMD jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='data-science'
+CMD jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='my_custom_jupyter'
