@@ -49,7 +49,7 @@ RUN mkdir ~/my_project && \
     conda update anaconda && \
     conda update --all && \
     # Install Jupyter theme for customizing the jupyter lab environment
-    pip install msgpack jupyterthemes && \
+    pip install jupyterthemes && \
     jt -t grade3 && \ 
     # Install other Python packages (whether it's resolvable using pip or conda )
     conda install pymssql && \
@@ -59,7 +59,6 @@ RUN mkdir ~/my_project && \
         json_tricks \
         bcolz \
         elasticsearch \
-        psycopg2 \
         jupyter_contrib_nbextensions \
         jupyter_nbextensions_configurator && \
     # Enable Jupyter Notebook extensions
