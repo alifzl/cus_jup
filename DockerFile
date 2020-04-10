@@ -35,12 +35,12 @@ RUN mkdir ~/my_project && \
     mkdir ~/.jupyter && \
     mkdir -p ~/.jupyter/custom && \
     mkdir -p ~/.jupyter/nbconfig && \
-    cp /cus_jup/jupyter_configs/jupyter_notebook_config.py ~/.jupyter/ && \
-    cp /dotfiles/jupyter_configs/custom/custom.js ~/.jupyter/custom/ && \
-    cp /dotfiles/jupyter_configs/nbconfig/notebook.json ~/.jupyter/nbconfig/ && \
-    rm -rf /dotfiles && \
+    cp /cus_jup/jupyter_notebook_config.py ~/.jupyter/ && \
+    cp /dotfiles/custom/custom.js ~/.jupyter/custom/ && \
+    cp /dotfiles/nbconfig/notebook.json ~/.jupyter/nbconfig/ && \
+    rm -rf /cus_jup
  
  # Configure access to Jupyter
 WORKDIR /root/my_project
 EXPOSE 8888
-CMD jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='data-science'
+# CMD jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='data-science'
