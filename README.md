@@ -3,7 +3,7 @@
 This is my customized jupyter lab container files, used to inject the needful configuration to build a suitable docker instance for doing data analytic task on the go! 
 
 ### What is Inside?
- - Latest Version fo [Anaconda python 3](https://docs.anaconda.com/anaconda/)
+ - Latest Version of [Anaconda python 3](https://docs.anaconda.com/anaconda/)
  - [jupyterthemes](https://github.com/dunovank/jupyter-themes)
  - [pymssql](https://pypi.org/project/pymssql/)
  - [quilt](https://quiltdata.com/)
