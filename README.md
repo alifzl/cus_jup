@@ -21,12 +21,15 @@ Any changes to the Dockerfile will be automatically built-in Docker Hub, so just
 ### Run
  Run the container in a detached mode so that you can use Jupyter Notebooks but still use bash:
 1. <b>Linux</b>:
+
      `docker run -d --name custom_jupyter -v ~/my_project:/root/my_project --network=host -i alifazeli/cus_jup` <br>
      `docker exec -it custom_jupyter  bash` 
-2.<b>Windows</b>:
+2. <b>Windows</b>:
+
      `docker run -d--name custom_jupyter -v ${pwd}:/root/myproject  -p 8888:8888 -i alifazeli/cus_jup `<br>
      `docker exec -it custom_jupyter  bash` 
-3.<b>MacOS</b>:
+3. <b>MacOS</b>:
+
     `docker run -d--name custom_jupyter -v ~/my_project:/root/myproject  -p 8888:8888 -i alifazeli/cus_jup `<br>
     `docker exec -it custom_jupyter  bash` 
 
