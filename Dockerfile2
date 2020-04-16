@@ -1,4 +1,4 @@
-# Base Image
+# Base Image, I used an Ubuntu
 FROM ubuntu:latest
 
 # Adds metadata to the image as a key value pair example LABEL version="1.0"
